@@ -1,0 +1,52 @@
+{
+  "private": true,
+  "name": "tictactoe",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build",
+    "serve": "preact build && sirv build --cors --single",
+    "dev": "preact watch",
+    "lint": "eslint src"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-pedant",
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "react"
+    ],
+    "rules": {
+      "react/jsx-no-undef": "off",
+      "no-unused-vars": "off"
+    },
+    "env": {
+      "es6": true,
+      "node": true,
+      "browser": true
+    }
+  },
+  "eslintIgnore": [
+    "build/*"
+  ],
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.0.1",
+    "eslint-config-pedant": "^1.0.1",
+    "eslint-plugin-react": "^7.18.3",
+    "if-env": "^1.0.4",
+    "preact-cli": "^3.0.0-rc.6",
+    "sirv-cli": "^0.4.5"
+  },
+  "dependencies": {
+    "preact": "^10.3.3",
+    "preact-render-to-string": "^5.1.4"
+  }
+}

@@ -1,0 +1,14 @@
+html,
+body {
+  font: 50px/1.21 serif;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+h1 {
+  text-align: center;
+}
+
+dialog {
+  outline: 99in solid #b00a;
+}
