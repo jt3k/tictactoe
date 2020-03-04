@@ -93,7 +93,7 @@ export default class App extends Component {
     });
 
     setTimeout(() => {
-      clearTimeout(intervalId);
+      clearInterval(intervalId);
       this.setState({ ...this.initialState });
     }, 1000);
   };
