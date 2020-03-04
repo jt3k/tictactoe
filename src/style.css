@@ -3,9 +3,26 @@ body {
   font: 50px/1.21 serif;
   font-weight: 400;
   white-space: nowrap;
+  line-height: 1;
 }
 
 h1 {
+  text-align: center;
+}
+
+.table {
+  margin: auto;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  outline: 1px solid black;
+}
+
+.cell {
+  width: 1em;
+  height: 1em;
+  outline: 1px solid black;
   text-align: center;
 }
 

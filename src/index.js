@@ -1,6 +1,12 @@
 import "./style";
-import Cell from "./components/cell";
 import { Component } from "preact";
+/*
+0 | 1 | 2
+--+---+--
+3 | 4 | 5
+--+---+--
+6 | 7 | 8
+ */
 const winCombinations = {
   0: [
     [1, 2],
@@ -47,20 +53,20 @@ const winCombinations = {
 export default class App extends Component {
   initialState = {
     table: Array.from({ length: 9 }),
-    nextCross: true,
+    isNextCross: true,
     isWin: false
   };
   state = { ...this.initialState };
 
   onClick = ({ target }) => {
     const { celIndex } = target.dataset;
-    const { table, nextCross } = this.state;
+    const { table, isNextCross } = this.state;
     //  Win or already filled
     if (this.state.isWin || table[celIndex]) {
       return;
     }
 
-    const nextMark = nextCross ? "×" : "□";
+    const nextMark = isNextCross ? "×" : "□";
     const isWin = winCombinations[celIndex].some(combination =>
       combination.every(item => table[item] === nextMark)
     );
@@ -69,7 +75,7 @@ export default class App extends Component {
       table: table.map((mark, index) =>
         index === Number(celIndex) ? nextMark : mark
       ),
-      nextCross: !nextCross,
+      isNextCross: !isNextCross,
       isWin
     });
   };
@@ -93,32 +99,23 @@ export default class App extends Component {
   };
 
   render() {
-    const { table, isWin, nextCross } = this.state;
+    const { table, isWin, isNextCross } = this.state;
     return (
       <div>
         <h1>~tic tac toe~</h1>
 
         <dialog open={isWin}>
-          ПОБЕДИЛ {nextCross ? "КВАДРАТ" : "КРЕСТ"}!
+          ПОБЕДИЛ {isNextCross ? "КВАДРАТ" : "КРЕСТ"}!
           <button onClick={this.reset}>ищё</button>
         </dialog>
 
-        <div
-          style={{
-            margin: "auto",
-            width: "3em",
-            height: "3em",
-            display: "flex",
-            flexWrap: "wrap",
-            outline: "1px solid black"
-          }}
-        >
+        <div class="table">
           {table.map((cel, celIndex) => (
-            <Cell onClick={this.onClick} celIndex={celIndex}>
+            <div class="cell" onClick={this.onClick} data-cel-index={celIndex}>
               {cel}
-            </Cell>
+            </div>
           ))}
-          <br/>
+          <br />
           <button onClick={this.reset}>ищё</button>
         </div>
       </div>
