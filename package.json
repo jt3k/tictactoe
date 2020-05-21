@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "prebuild": "rm -rf ./build ./docs",
     "build": "preact build",
+    "postbuild": "mv ./build ./docs",
     "serve": "preact build && sirv build --cors --single",
     "dev": "preact watch",
     "lint": "eslint src"
