@@ -5,9 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "prebuild": "rm -rf ./build ./docs",
-    "build": "preact build",
-    "postbuild": "mv ./build ./docs",
+    "build": "preact build --dest docs",
     "serve": "preact build && sirv build --cors --single",
     "dev": "preact watch",
     "lint": "eslint src"
@@ -42,13 +40,13 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.0.1",
     "eslint-config-pedant": "^1.0.1",
-    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react": "^7.20.0",
     "if-env": "^1.0.4",
-    "preact-cli": "^3.0.0-rc.6",
+    "preact-cli": "^3.0.0-rc.10",
     "sirv-cli": "^0.4.5"
   },
   "dependencies": {
-    "preact": "^10.3.3",
-    "preact-render-to-string": "^5.1.4"
+    "preact": "^10.4.4",
+    "preact-render-to-string": "^5.1.8"
   }
 }

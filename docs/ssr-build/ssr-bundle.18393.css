@@ -14,7 +14,6 @@ h1 {
   margin: auto;
   width: 3em;
   height: 3em;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -34,4 +33,4 @@ dialog {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.10928.css.map*/
+/*# sourceMappingURL=ssr-bundle.18393.css.map*/
